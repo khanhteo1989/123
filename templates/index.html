@@ -1,175 +1,33 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MedDental | Nha khoa hiện đại</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body class="bg-white text-gray-900">
-
-  <!-- HEADER -->
-  <header class="bg-white border-b border-gray-200 shadow-sm">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
-      <div class="flex items-center gap-3">
-        <img src="meddental-chatbot/static/logo.png" alt="MedDental Logo" class="h-12 w-auto">
-        <span class="text-xl font-bold text-blue-800">MEDDENTAL</span>
-      </div>
-      <div class="flex items-center gap-6">
-        <div class="relative">
-          <input type="text" placeholder="Tìm kiếm" class="border border-gray-300 rounded-full px-4 py-1 text-sm focus:outline-none">
-          <i class="fas fa-search absolute right-3 top-2 text-gray-400"></i>
-        </div>
-        <div class="text-sm text-gray-800 flex items-center gap-2">
-          <i class="fas fa-phone text-blue-600"></i>
-          <div>
-            <p class="text-xs text-gray-500">Hotline</p>
-            <p class="font-semibold">0814419333</p>
-          </div>
-        </div>
-        <div class="text-sm text-gray-800 flex items-center gap-2">
-          <i class="fas fa-comment-dots text-blue-600"></i>
-          <div>
-            <p class="text-xs text-gray-500">Liên hệ</p>
-            <p class="font-semibold">Hỗ trợ khách hàng</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <nav class="bg-white border-t border-gray-200 text-sm text-gray-800 px-4 py-2">
-      <div class="max-w-7xl mx-auto flex gap-6">
-        <a href="index.html" class="hover:text-blue-700 font-medium"><i class="fas fa-home"></i> Giới thiệu</a>
-        <a href="rang-su.html" class="hover:text-blue-700">Nha khoa thẩm mỹ</a>
-        <a href="nho-rang.html" class="hover:text-blue-700">Nha khoa tổng quát</a>
-        <a href="#" class="hover:text-blue-700">Sản phẩm</a>
-        <a href="#" class="hover:text-blue-700">Bảng giá</a>
-        <a href="#" class="hover:text-blue-700">Khách hàng</a>
-        <a href="#" class="hover:text-blue-700">Tin tức</a>
-        <a href="#" class="hover:text-blue-700">Tuyển dụng</a>
-        <a href="#" class="hover:text-blue-700">Liên hệ</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- BANNER -->
-  <section class="bg-blue-50 py-4">
-    <div class="text-center">
-      <img src="{{ url_for('static', filename='banner.jpg') }}" alt="Banner MedDental" class="mx-auto rounded-lg shadow-lg max-w-full" />
-    </div>
-  </section>
-
-  <!-- GIỚI THIỆU -->
-  <section id="gioithieu" class="py-12 px-4 bg-white text-gray-700">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl font-bold text-blue-900 mb-6">Giới thiệu về MedDental</h2>
-      <p class="mb-6">MedDental là hệ thống nha khoa trực thuộc hệ thống y tế tư nhân Medlatec...</p>
-      <img src="{{ url_for('static', filename='intro.png') }}" alt="Giới thiệu MedDental" class="mx-auto mb-8 rounded-lg shadow max-w-full"/>
-      <p class="mb-6">Hệ thống nha khoa Medlatec - MedDental là đơn vị điều trị nha khoa chuyên sâu...</p>
-      <img src="{{ url_for('static', filename='gioi-thieu1.png') }}" alt="Cơ sở vật chất MedDental" class="mx-auto mb-8 rounded-lg shadow max-w-full"/>
-    </div>
-  </section>
-
-  <!-- FORM ĐẶT LỊCH -->
-  <section id="datlich" class="max-w-2xl mx-auto bg-white border border-gray-300 rounded-xl shadow-xl p-6 my-8">
-    <h3 class="text-xl font-bold text-blue-900 mb-4">Đặt lịch tư vấn</h3>
-    <form class="space-y-3">
-      <input type="text" placeholder="Họ tên" class="w-full px-4 py-2 border rounded-md" />
-      <input type="tel" placeholder="Điện thoại" class="w-full px-4 py-2 border rounded-md" />
-      <input type="text" placeholder="Địa chỉ" class="w-full px-4 py-2 border rounded-md" />
-      <input type="date" class="w-full px-4 py-2 border rounded-md text-gray-500" />
-      <select class="w-full px-4 py-2 border rounded-md">
-        <option disabled selected>Dịch vụ bạn quan tâm *</option>
-        <option>Khám tổng quát</option>
-        <option>Nhổ răng - Trồng răng</option>
-        <option>Niềng răng - Thẩm mỹ</option>
-      </select>
-      <textarea placeholder="Lời nhắn cho bác sĩ" class="w-full px-4 py-2 border rounded-md"></textarea>
-      <button type="submit" class="bg-blue-900 text-white font-semibold w-full py-2 rounded-md hover:bg-blue-800">ĐẶT LỊCH TƯ VẤN</button>
-    </form>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-blue-900 text-white text-center py-4 mt-8">
-    &copy; 2025 MedDental. Hotline: 0814419333
-  </footer>
-
-  <!-- CHATBOX TOÀN MÀN HÌNH KHI MOBILE -->
-  <div id="chatbox" class="fixed inset-0 md:bottom-6 md:right-6 md:w-96 md:max-w-full bg-white shadow-xl border border-gray-300 rounded-none md:rounded-xl z-50 hidden flex-col">
-    <div class="bg-blue-900 text-white px-4 py-3 flex justify-between items-center rounded-none md:rounded-t-xl">
-      <span class="font-semibold">Bác sĩ AI - MedDental</span>
-      <button onclick="toggleChat()" class="text-white hover:text-red-400 text-lg font-bold">×</button>
-    </div>
-    <div id="chat-content" class="flex-1 overflow-y-auto p-4 text-sm space-y-2 bg-gray-50"></div>
-    <div class="p-3 border-t bg-white">
-      <input id="chat-input" type="text" placeholder="Nhập câu hỏi..." class="w-full px-3 py-2 border rounded-md text-sm" onkeypress="if(event.key==='Enter'){sendMessage()}"/>
-    </div>
-  </div>
-
-  <!-- NÚT BẬT CHAT -->
-  <lottie-player
-  id="chat-toggle-button"
-  src="https://lottie.host/9ce13ba8-6202-4780-a58e-2e5917dc40f6/cS2UwBeU95.json"
-  background="transparent"
-  speed="1"
-  style="width: 64px; height: 64px;"
-  class="fixed bottom-6 right-6 z-40 cursor-pointer"
-  loop autoplay>
-</lottie-player>
-
-
-<script>
-  const BACKEND_URL = "https://meddental-backend-production.up.railway.app/chat";
-
-  function toggleChat() {
-    const chatbox = document.getElementById("chatbox");
-    const toggleButton = document.getElementById("chat-toggle-button");
-    chatbox.classList.toggle("hidden");
-    toggleButton.classList.toggle("hidden");
-  }
-
-  // Gán sự kiện click an toàn sau khi DOM đã render
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.getElementById("chat-toggle-button");
-    if (toggleBtn) {
-      toggleBtn.addEventListener("click", toggleChat);
-    }
-  });
-
-  async function sendMessage() {
-    const input = document.getElementById("chat-input");
-    const chatContent = document.getElementById("chat-content");
-    const message = input.value.trim();
-    if (!message) return;
-
-    const userDiv = document.createElement("div");
-    userDiv.className = "bg-blue-100 text-blue-900 px-3 py-2 rounded w-fit max-w-[80%]";
-    userDiv.textContent = message;
-    chatContent.appendChild(userDiv);
-    chatContent.scrollTop = chatContent.scrollHeight;
-    input.value = "";
-
-    const resDiv = document.createElement("div");
-    resDiv.className = "bg-gray-200 text-gray-800 px-3 py-2 rounded w-fit max-w-[80%]";
-    resDiv.textContent = "Đang trả lời...";
-    chatContent.appendChild(resDiv);
-    chatContent.scrollTop = chatContent.scrollHeight;
-
-    try {
-      const res = await fetch(BACKEND_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message })
-      });
-
-      const data = await res.json();
-      resDiv.textContent = data.reply || "❌ Không có phản hồi từ máy chủ.";
-    } catch (e) {
-      resDiv.textContent = "⚠️ Lỗi kết nối với chatbot.";
-    }
-
-    chatContent.scrollTop = chatContent.scrollHeight;
-  }
-</script>
+<body>
+    <h1>Customer Management</h1>
+    <a href="{{ url_for('upload_file') }}">Upload Excel File</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.address }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
