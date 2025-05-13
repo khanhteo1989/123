@@ -1,29 +1,35 @@
-/* Hiệu ứng tin nhắn trượt mượt */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
 }
 
-.animate-fade-in {
-  animation: fade-in 0.3s ease-in-out;
+h1 {
+    text-align: center;
 }
 
-/* Tùy chọn: làm tròn ảnh, logo nhỏ */
-img.rounded-avatar {
-  border-radius: 9999px;
+a {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: blue;
 }
 
-/* Fix input + chatbot responsive nếu cần */
-input, textarea {
-  outline: none;
-  transition: border-color 0.2s ease-in-out;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
 }
-input:focus, textarea:focus {
-  border-color: #2563eb; /* Tailwind blue-600 */
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+form {
+    text-align: center;
 }
