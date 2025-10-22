@@ -1,15 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Excel</title>
+    <title>Tải danh sách khách hàng Green Little Town</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background: linear-gradient(135deg, #edf9f4 0%, #ffffff 100%);
+        }
+        .upload-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .upload-card {
+            background: #fff;
+            padding: 48px;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(15, 68, 55, 0.12);
+            width: min(480px, 92vw);
+            text-align: center;
+        }
+        .upload-card h1 {
+            font-size: 1.75rem;
+            margin-bottom: 12px;
+        }
+        .upload-card p {
+            color: #4f5b62;
+            margin-bottom: 24px;
+        }
+        .upload-card form {
+            display: grid;
+            gap: 16px;
+        }
+        .upload-card input[type="file"] {
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px dashed rgba(31, 122, 98, 0.3);
+            background: rgba(31, 122, 98, 0.05);
+        }
+    </style>
 </head>
 <body>
-    <h1>Upload Excel File</h1>
-    <form method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" required>
-        <button type="submit">Upload</button>
-    </form>
+    <div class="upload-wrapper">
+        <div class="upload-card">
+            <h1>Tải danh sách khách hàng quan tâm</h1>
+            <p>Chọn tệp Excel (.xls, .xlsx) để cập nhật danh sách khách hàng đang tìm hiểu Green Little Town.</p>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <button class="btn btn-primary" type="submit">Tải lên</button>
+            </form>
+            <a class="btn btn-secondary" href="{{ url_for('index') }}">Quay lại trang chủ</a>
+        </div>
+    </div>
 </body>
 </html>
