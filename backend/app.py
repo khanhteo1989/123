@@ -33,6 +33,12 @@ def index():
     customers = Customer.query.all()  # Lấy danh sách khách hàng từ cơ sở dữ liệu
     return render_template('index.html', customers=customers)
 
+
+@app.route('/order')
+def order_page():
+    """Trang hiển thị form đặt hàng cho sản phẩm ĐÈN F35."""
+    return render_template('order.html')
+
 # Trang upload file Excel
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
