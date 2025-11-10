@@ -1,33 +1,323 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Management</title>
+    <title>Green Little Town Cổ Bi - Gia Lâm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-    <h1>Customer Management</h1>
-    <a href="{{ url_for('upload_file') }}">Upload Excel File</a>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Address</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for customer in customers %}
-                <tr>
-                    <td>{{ customer.name }}</td>
-                    <td>{{ customer.phone }}</td>
-                    <td>{{ customer.email }}</td>
-                    <td>{{ customer.address }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <header class="top-nav">
+        <div class="container nav-wrapper">
+            <a class="brand" href="#hero">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Green Little Town logo">
+                <span>Green Little Town</span>
+            </a>
+            <nav>
+                <a href="#about">Tổng quan</a>
+                <a href="#highlights">Tiện ích</a>
+                <a href="#process">Quy trình</a>
+                <a href="#gallery">Mặt bằng</a>
+                <a href="#contact">Liên hệ</a>
+                <a class="btn btn-primary" href="#registration">Đăng ký</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Phố xanh an lành giữa lòng Gia Lâm</h1>
+                    <p>
+                        Green Little Town là khu đô thị sinh thái tại trung tâm xã Cổ Bi, sở hữu hệ thống tiện ích khép kín,
+                        không gian xanh rộng lớn và vị trí kết nối linh hoạt với nội đô Hà Nội.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#registration">Đăng ký nhận thông tin</a>
+                        <a class="btn btn-secondary" href="#highlights">Khám phá tiện ích</a>
+                    </div>
+                    <ul class="hero-stats">
+                        <li><strong>12 ha</strong> tổng diện tích quy hoạch</li>
+                        <li><strong>60%</strong> diện tích cây xanh &amp; mặt nước</li>
+                        <li><strong>15 phút</strong> tới trung tâm Hà Nội</li>
+                    </ul>
+                </div>
+                <div class="hero-image">
+                    <img src="{{ url_for('static', filename='banner.jpg') }}" alt="Phối cảnh tổng thể Green Little Town">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="container grid-2">
+                <div class="about-image">
+                    <img src="{{ url_for('static', filename='gioithieu.png') }}" alt="Khuôn viên dự án Green Little Town">
+                </div>
+                <div>
+                    <h2>Nhịp sống trong lành giữa thiên nhiên</h2>
+                    <p>
+                        Green Little Town Cổ Bi - Gia Lâm được định hướng trở thành khu đô thị xanh chuẩn mực với quy hoạch đồng bộ,
+                        đường nội khu rộng, vườn cây xen kẽ cùng chuỗi tiện ích chăm sóc sức khỏe và giáo dục toàn diện.
+                    </p>
+                    <div class="about-highlights">
+                        <article>
+                            <h3>Vị trí chiến lược</h3>
+                            <p>Liền kề quốc lộ 5, ga Cổ Bi và tuyến Metro số 8 tương lai, thuận tiện di chuyển vào nội đô.</p>
+                        </article>
+                        <article>
+                            <h3>Không gian đáng sống</h3>
+                            <p>Mỗi phân khu sở hữu công viên trung tâm, đường dạo bộ và tiện ích sinh hoạt cộng đồng.</p>
+                        </article>
+                        <article>
+                            <h3>Tiềm năng đầu tư</h3>
+                            <p>Hưởng lợi trực tiếp từ quy hoạch thành phố thông minh phía Đông Hà Nội và hạ tầng mới Gia Lâm.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="highlights" class="section services">
+            <div class="container section-header">
+                <h2>Tiện ích nổi bật</h2>
+                <p>Chuỗi tiện ích khép kín đáp ứng mọi nhu cầu sống xanh - an lành của cư dân tương lai.</p>
+            </div>
+            <div class="container service-grid">
+                <article class="service-card">
+                    <img src="{{ url_for('static', filename='implant.png') }}" alt="Hồ điều hòa trung tâm">
+                    <h3>Hồ điều hòa &amp; công viên</h3>
+                    <p>Điểm nhấn cảnh quan với mặt nước rộng, lối dạo bộ, khu BBQ và sân chơi trẻ em.</p>
+                    <ul>
+                        <li>Công viên trung tâm 1,5 ha</li>
+                        <li>Hệ thống đường chạy bộ dài 2 km</li>
+                        <li>Không gian tổ chức sự kiện ngoài trời</li>
+                    </ul>
+                </article>
+                <article class="service-card">
+                    <img src="{{ url_for('static', filename='rang-su.jpg') }}" alt="Tiện ích thương mại">
+                    <h3>Phố thương mại sầm uất</h3>
+                    <p>Dãy shophouse, nhà phố thương mại kết nối trục đường chính, phục vụ mua sắm - giải trí.</p>
+                    <ul>
+                        <li>Mặt tiền từ 6 - 8m linh hoạt kinh doanh</li>
+                        <li>Nhà hàng, café, siêu thị tiện lợi</li>
+                        <li>Không gian cộng đồng cho cư dân</li>
+                    </ul>
+                </article>
+                <article class="service-card">
+                    <img src="{{ url_for('static', filename='nieng-rang.jpg') }}" alt="Hệ thống giáo dục">
+                    <h3>Giáo dục &amp; sức khỏe</h3>
+                    <p>Trường mầm non, tiểu học liên cấp và trung tâm y tế tiêu chuẩn, chăm sóc cư dân mọi lứa tuổi.</p>
+                    <ul>
+                        <li>Trường học liên kết chuẩn quốc tế</li>
+                        <li>Phòng khám đa khoa trong khu</li>
+                        <li>Khu thể thao đa năng</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="process" class="section process">
+            <div class="container section-header">
+                <h2>Quy trình sở hữu minh bạch</h2>
+                <p>Đăng ký nhanh chóng để chọn được vị trí đẹp tại Green Little Town.</p>
+            </div>
+            <div class="container process-steps">
+                <div class="step">
+                    <span class="step-number">01</span>
+                    <h3>Đăng ký quan tâm</h3>
+                    <p>Điền form trực tuyến hoặc liên hệ hotline, chuyên viên tư vấn gọi lại trong 15 phút.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">02</span>
+                    <h3>Tham quan thực tế</h3>
+                    <p>Sắp xếp lịch xem nhà mẫu, trải nghiệm không gian tiện ích và nghe giới thiệu quy hoạch.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">03</span>
+                    <h3>Đặt chỗ giữ vị trí</h3>
+                    <p>Lựa chọn loại hình sản phẩm phù hợp, đặt cọc giữ chỗ và nhận hồ sơ pháp lý.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">04</span>
+                    <h3>Ký hợp đồng &amp; bàn giao</h3>
+                    <p>Hoàn thiện thủ tục thanh toán theo tiến độ, nhận bàn giao nhà theo cam kết chủ đầu tư.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section testimonials">
+            <div class="container section-header">
+                <h2>Góc nhìn cư dân tương lai</h2>
+                <p>Chia sẻ từ khách hàng đã trải nghiệm không gian và quyết định đồng hành cùng dự án.</p>
+            </div>
+            <div class="container testimonial-grid">
+                <article>
+                    <p>“Green Little Town hội tụ đầy đủ không gian xanh, khu vui chơi cho con và kết nối giao thông thuận lợi.
+                        Đây là lựa chọn phù hợp cho gia đình trẻ như chúng tôi.”</p>
+                    <div class="author">
+                        <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="Cư dân 1">
+                        <div>
+                            <h3>Minh Anh</h3>
+                            <span>Gia đình trẻ - Phân khu Lakeview</span>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <p>“Tiện ích thương mại đa dạng, cộng đồng cư dân văn minh cùng chính sách thanh toán linh hoạt giúp tôi an tâm đầu tư.”</p>
+                    <div class="author">
+                        <img src="{{ url_for('static', filename='avatar.png') }}" alt="Nhà đầu tư 1">
+                        <div>
+                            <h3>Quốc Huy</h3>
+                            <span>Nhà đầu tư - Shophouse Avenue</span>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <p>“Khi tham quan nhà mẫu, tôi ấn tượng với thiết kế chú trọng ánh sáng tự nhiên, sân vườn rộng cho cả gia đình.”</p>
+                    <div class="author">
+                        <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="Cư dân 2">
+                        <div>
+                            <h3>Thu Thảo</h3>
+                            <span>Khách hàng - Biệt thự song lập</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="registration" class="section booking">
+            <div class="container booking-card">
+                <div>
+                    <h2>Đăng ký nhận thông tin ưu đãi</h2>
+                    <p>Chuyên viên Green Little Town sẽ liên hệ ngay để cập nhật bảng hàng, chính sách và lịch tham quan.</p>
+                    <ul>
+                        <li>Tặng vé tham quan nhà mẫu &amp; xe đưa đón miễn phí</li>
+                        <li>Nhận bảng giá chi tiết từng phân khu</li>
+                        <li>Hỗ trợ vay vốn tới 65% giá trị sản phẩm</li>
+                    </ul>
+                </div>
+                <form method="get" action="{{ url_for('upload_file') }}">
+                    <div class="form-group">
+                        <label for="name">Họ và tên</label>
+                        <input type="text" id="name" name="name" placeholder="Nguyễn Văn A" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại</label>
+                        <input type="tel" id="phone" name="phone" placeholder="090x xxx xxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product">Loại hình quan tâm</label>
+                        <select id="product" name="product" required>
+                            <option value="" disabled selected>Chọn sản phẩm quan tâm</option>
+                            <option value="shophouse">Shophouse thương mại</option>
+                            <option value="nhapho">Nhà phố liền kề</option>
+                            <option value="bietthu">Biệt thự song lập</option>
+                            <option value="canho">Căn hộ dịch vụ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="note">Ghi chú thêm</label>
+                        <textarea id="note" name="note" rows="3" placeholder="Nhu cầu của bạn"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Gửi thông tin</button>
+                    <p class="form-hint">*Ưu đãi số lượng giới hạn cho khách hàng đăng ký trực tuyến.</p>
+                </form>
+            </div>
+        </section>
+
+        {% if customers %}
+        <section id="customers" class="section customers">
+            <div class="container section-header">
+                <h2>Danh sách khách hàng quan tâm</h2>
+                <p>Dữ liệu cập nhật tự động từ tệp Excel bạn vừa tải lên hệ thống.</p>
+            </div>
+            <div class="container customer-table-wrapper">
+                <table class="customer-table">
+                    <thead>
+                        <tr>
+                            <th>Họ tên</th>
+                            <th>Số điện thoại</th>
+                            <th>Email</th>
+                            <th>Khu vực quan tâm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for customer in customers %}
+                        <tr>
+                            <td>{{ customer.name }}</td>
+                            <td>{{ customer.phone }}</td>
+                            <td>{{ customer.email }}</td>
+                            <td>{{ customer.address }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        {% endif %}
+
+        <section id="contact" class="section contact">
+            <div class="container contact-grid">
+                <div>
+                    <h2>Kết nối với Green Little Town</h2>
+                    <p>Liên hệ để nhận tư vấn chi tiết, lịch tham quan nhà mẫu và chính sách bán hàng mới nhất.</p>
+                    <div class="contact-details">
+                        <div>
+                            <h3>Hotline</h3>
+                            <a href="tel:1900636898">1900 636 898</a>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <a href="mailto:info@greenlittletown.vn">info@greenlittletown.vn</a>
+                        </div>
+                        <div>
+                            <h3>Địa chỉ</h3>
+                            <p>Đường Trâu Quỳ - Cổ Bi, Huyện Gia Lâm, Hà Nội</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.458697253201!2d105.9427014!3d21.0537466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac9f0b2a9a75%3A0x8c302ff7f6fb5c0f!2zQ-G7lW5nIMSQLiBOZ3V54buFbiBE4bqhYyBIw6AgTuG7mWkgKEdpYSBMw6JtKQ!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <h3>Green Little Town</h3>
+                <p>Khu đô thị sinh thái Cổ Bi - Gia Lâm với không gian sống xanh, tiện ích đẳng cấp.</p>
+                <p class="copyright">© {{ 2024 }} Green Little Town. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Danh mục</h4>
+                <a href="#highlights">Tiện ích</a>
+                <a href="#process">Quy trình</a>
+                <a href="#gallery">Cảm nhận cư dân</a>
+                <a href="#contact">Liên hệ</a>
+            </div>
+            <div class="footer-links">
+                <h4>Chính sách</h4>
+                <a href="#">Chính sách bảo mật</a>
+                <a href="#">Quy định đặt chỗ</a>
+                <a href="#">Điều khoản sử dụng</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-actions">
+        <a class="floating-btn zalo" href="https://zalo.me/1900636898" target="_blank" rel="noopener">Zalo tư vấn</a>
+        <a class="floating-btn phone" href="tel:1900636898">Gọi ngay</a>
+    </div>
 </body>
+
 </html>
